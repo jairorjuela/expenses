@@ -56,16 +56,17 @@ class ExpensesController < ApplicationController
   end
 
   def destroy
-        @expense.destroy
-        @date = params[:month] ? @date = params[:month] : Date.today.strftime("%B %Y")
-        @expenses = Expense.all.by_month(@date).order("date_expense DESC")
-        @total = @expenses.get_sum
-        @total_count = @expenses.get_count
-        @average_expense = @expenses.average_expense.to_i
-        respond_to do |format|
-          format.json { head :no_content}
-          format.js { flash[:notice] =  'Expense DELETE'}
-        end
+    @expense.destroy
+    respond_to do |format|
+      format.html { redirect_to expenses_url }
+      format.json { head :no_content}
+      format.js { flash[:notice] =  'Expense DELETE'}
+    end
+    @date = params[:month] ? @date = params[:month] : Date.today.strftime("%B %Y")
+    @expenses = Expense.all.by_month(@date).order("date_expense DESC")
+    @total = @expenses.get_sum
+    @total_count = @expenses.get_count
+    @average_expense = @expenses.average_expense.to_i
   end
 
   private
