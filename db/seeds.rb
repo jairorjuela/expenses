@@ -30,7 +30,7 @@ Purchase.find_or_create_by(name_purchases: "Transferencia")
 
 Purchase.find_or_create_by(name_purchases: "Pago")
 
-300.times do
+100.times do
   Expense.create([{
     name: Faker::Commerce.product_name,
     amount: rand(1000..2000000),
