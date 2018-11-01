@@ -20,7 +20,7 @@ class DashboardController < ApplicationController
   end
 
   def acum
-    @expenses = Expense.all.select(:date_expense, :amount).group(:date_expense, :amount).group_by_month(:date_expense, last: 2)
+    @expenses = Expense.all.select(:purchase_id, :id).group(:purchase_id, :id).group_by_month(:date_expense, last: 2)
   end
 
 end

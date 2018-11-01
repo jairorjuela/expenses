@@ -17,7 +17,7 @@ class Charts
           title:{
 		          text: "Últimos seis meses"
 	        },
-          backgroundColor: '#848484',
+          backgroundColor: '808487',
           animationEnabled: true,
           data: data
         )
@@ -32,7 +32,7 @@ class Charts
             title:{
   		          text: "Gastos del día"
   	        },
-            backgroundColor: '#848484',
+            backgroundColor: '808487',
             animationEnabled: true,
             data: data
           )
@@ -47,7 +47,7 @@ class Charts
             title:{
   		          text: "Categorías"
   	        },
-            backgroundColor: '#848484',
+            backgroundColor: '808487',
             animationEnabled: true,
             data: data
           )
@@ -62,7 +62,7 @@ class Charts
             title:{
   		          text: "Acumulado"
   	        },
-            backgroundColor: '#848484',
+            backgroundColor: '808487',
             animationEnabled: true,
             data: data
           )
