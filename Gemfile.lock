@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/radar/by_star
-  revision: 422c06ec1ea8ce633aca014a4403fbac92630057
-  specs:
-    by_star (3.0.0)
-      activesupport (> 3)
-
-GIT
   remote: https://github.com/stympy/faker.git
   revision: e220758871e64b85e799efc6143617b1cb722761
   branch: master
@@ -64,6 +57,8 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
+    by_star (2.2.1)
+      activesupport
     byebug (10.0.1)
     capybara (2.18.0)
       addressable
@@ -103,7 +98,7 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    loofah (2.2.2)
+    loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
@@ -161,7 +156,7 @@ GEM
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
-      loofah (~> 2.2, >= 2.2.2)
+      loofah (~> 2.2, >= 2.2.3)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -228,10 +223,10 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
-  by_star!
+  by_star (~> 2.2, >= 2.2.1)
   byebug
   chartkick
-  chronic
+  chronic (~> 0.10.2)
   coffee-rails (~> 4.1.0)
   faker!
   googlecharts
@@ -256,4 +251,4 @@ DEPENDENCIES
   will_paginate (~> 3.1.0)
 
 BUNDLED WITH
-   1.16.1
+   1.17.1

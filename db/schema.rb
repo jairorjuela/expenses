@@ -39,4 +39,6 @@ ActiveRecord::Schema.define(version: 20180819204235) do
     t.datetime "updated_at",     null: false
   end
 
+  add_foreign_key "expenses", "categories"
+  add_foreign_key "expenses", "purchases"
 end

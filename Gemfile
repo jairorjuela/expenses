@@ -33,8 +33,8 @@ gem 'will_paginate', '~> 3.1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'by_star', git: "git://github.com/radar/by_star"
-gem 'chronic'
+gem 'by_star', '~> 2.2', '>= 2.2.1'
+gem 'chronic', '~> 0.10.2'
 
 group :development, :test do
   gem 'pg', '~> 0.18.4'
