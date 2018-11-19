@@ -2,14 +2,14 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
   def index
-    @date = params[:month] ? @date = params[:month] : Date.today.strftime("%B %Y")
+    @tab = :expenses
+    @date = params[:month] ? @date = params[:month].to_i : Date.today.strftime("%B %Y")
     @expenses = Expense.all.by_month(@date).order("date_expense DESC")
     @total = @expenses.get_sum
     @total_count = @expenses.get_count
     @average_expense = @total == 0 ? @average_expense = 0 : @average_expense = @expenses.average_expense.to_i
     @expenses = @expenses.where(purchase_id: params[:purchase_id]) if params[:purchase_id]
     @expenses = @expenses.where(category_id: params[:category_id]) if params[:category_id]
-    @tab = :expenses
   end
 
   def new
