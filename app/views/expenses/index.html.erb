@@ -7,26 +7,18 @@
         Transaction Type <span>Seleciona para filtrar</span>
       </h4>
       <div class="list-group filter-type">
-        <%= link_to  "Compra", expenses_path(purchase_id: 1), class: "list-group-item" %>
-        <%= link_to  "Retiro", expenses_path(purchase_id: 2), class: "list-group-item" %>
-        <%= link_to  "Transferencia", expenses_path(purchase_id: 3), class: "list-group-item" %>
-        <%= link_to  "Pago", expenses_path(purchase_id: 4), class: "list-group-item" %>
+        <% Purchase.all.each do |purchase| %>
+           <%= link_to "#{purchase.name_purchases}",  expenses_path(request.query_parameters.merge(purchase_id: purchase.id)), class: "list-group-item"%>
+        <% end %>
       </div>
-
       <h4 class="filter-header">Categoría <span>Selecciona para filtrar</span></h4>
       <div class="list-group filter-type">
-        <%= link_to  "Restaurantes", expenses_path(category_id: 1), class: "list-group-item" %>
-        <%= link_to  "Tienda", expenses_path(category_id: 2), class: "list-group-item" %>
-        <%= link_to  "Car", expenses_path(category_id: 3), class: "list-group-item" %>
-        <%= link_to  "Servicios", expenses_path(category_id: 4), class: "list-group-item" %>
-        <%= link_to  "Hogar", expenses_path(category_id: 5), class: "list-group-item" %>
-        <%= link_to  "Educación", expenses_path(category_id: 6), class: "list-group-item" %>
-        <%= link_to  "Diversión", expenses_path(category_id: 7), class: "list-group-item" %>
-        <%= link_to  "Viaje", expenses_path(category_id: 8), class: "list-group-item" %>
+        <% Category.all.each do |category| %>
+           <%= link_to "#{category.name}",  expenses_path(request.query_parameters.merge(category_id: category.id)), class: "list-group-item"%>
+        <% end %>
       </div>
     </div>
 <!-- Fin tablas de filtro category y Purchase -->
-
     <div class="col-md-9 index-data">
 
 
@@ -57,7 +49,12 @@
           <%= link_to "<span class='glyphicon glyphicon-plus'></span> New Expense".html_safe, new_expense_path, remote: true, class: "btn btn-success pull-left", id: "nuevo" %>
           <h4 class="dropdown pull-right">
             <button type="button" class="dropdown-toggle btn btn-link" data-toggle="dropdown">
+
+              <% if @date.is_a?(Integer) %>
+              <%= Date::MONTHNAMES[@date] %>
+              <% else %>
               <%= @date %>
+              <% end %>
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
@@ -98,7 +95,6 @@
               <%= link_to  "Diciembre 2018", expenses_path(month: 12) %>
               </li>
             </ul>
-
           </h4>
         </div>
       </div>
