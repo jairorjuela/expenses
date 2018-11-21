@@ -13,6 +13,8 @@ class Expense < ApplicationRecord
 
   scope :six_month, -> { where(:date_expense => 6.month.ago.beginning_of_month..1.month.ago.end_of_month) }
 
+  scope :by_today, -> { where(:date_expense => Date.today) }
+
   scope :get_sum, -> { self.sum(:amount)}
   scope :get_count, -> { self.count}
   scope :average_expense, -> { self.sum(:amount) / self.count(:id) }

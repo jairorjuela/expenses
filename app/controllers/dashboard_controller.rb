@@ -11,8 +11,8 @@ class DashboardController < ApplicationController
     @expenses = Expense.six_month.select(:purchase_id, :id).group( :purchase_id, :id)
   end
 
-  def by_day
-    @expenses = Expense.where(date_expense: Date.today).select(:purchase_id, :id, :amount).group(:purchase_id, :id, :amount)
+  def by_today
+    @expenses = Expense.by_today.select(:purchase_id, :id, :amount).group(:purchase_id, :id, :amount)
   end
 
   def by_category
