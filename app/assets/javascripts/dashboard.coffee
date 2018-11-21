@@ -4,7 +4,7 @@
 class Charts
   constructor:() ->
     $(document).on("turbolinks:load", @last_six_months);
-    $(document).on("turbolinks:load", @by_day);
+    $(document).on("turbolinks:load", @by_today);
     $(document).on("turbolinks:load", @by_category);
     $(document).on("turbolinks:load", @acum);
 
@@ -23,20 +23,20 @@ class Charts
         )
         chart.render();
 
-  by_day:() =>
-      $.ajax '/dashboard/by_day.json',
-        type: 'GET'
-        dataType: "json"
-        success: (data, textStatus, jqXHR) =>
-          chart = new CanvasJS.Chart("by_day",
-            title:{
-  		          text: "Gastos del día"
-  	        },
-            backgroundColor: '808487',
-            animationEnabled: true,
-            data: data
-          )
-          chart.render();
+  by_today:() =>
+    $.ajax '/dashboard/by_today.json',
+      type: 'GET'
+      dataType: "json"
+      success: (data, textStatus, jqXHR) =>
+        chart = new CanvasJS.Chart("by_today",
+          title:{
+		          text: "Gastos del Día"
+	        },
+          backgroundColor: '808487',
+          animationEnabled: true,
+          data: data
+        )
+        chart.render();
 
   by_category:() =>
       $.ajax '/dashboard/by_category.json',
